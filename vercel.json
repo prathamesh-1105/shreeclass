@@ -12,6 +12,10 @@
       "dest": "/server/app.js"
     },
     {
+      "src": "/auth/(.*)",
+      "dest": "/server/app.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/$1"
     }
