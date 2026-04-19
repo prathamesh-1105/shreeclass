@@ -1,17 +1,14 @@
-<<<<<<< HEAD
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 
-const DB_DIR = path.join(__dirname, "..", "data");
-const DB_FILE = path.join(DB_DIR, "db.json");
+const DATA_DIR = path.join(__dirname, "..", "data");
+const DB_FILE = path.join(DATA_DIR, "db.json");
 
-const seedAdminPassword = bcrypt.hashSync("shree.admin@123", 10);
+// For Vercel serverless environment, use in-memory database
+let inMemoryDb = null;
 
-const defaultDb = {
-  users: [
-    {
       id: "admin-1",
       name: "Shree Admin",
       email: "admin@shreeclasses.com",
